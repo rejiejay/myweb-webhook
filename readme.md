@@ -14,6 +14,8 @@
 
 ## 特性
 
+- [使用Github的webhooks进行网站自动化部署](https://aotu.io/notes/2016/01/07/auto-deploy-website-by-webhooks-of-github/index.html)
+
 - 基于 React 单页面服务端客户端同构实现
 
 - 支持服务端渲染 `render` 和纯前端渲染 `renderClient`

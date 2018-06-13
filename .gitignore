@@ -7,6 +7,14 @@ node_modules/
 # production
 /dist
 /dist/
+/config
+/config/
+/logs
+/logs/
+/public
+/public/
+/run
+/run/
 
 # misc
 .DS_Store
