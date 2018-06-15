@@ -1,0 +1,183 @@
+.dynamic {
+  min-height: 100%;
+  background-color: #f8f8f8;
+}
+
+.dynamic-group-list .am-navbar,
+.dynamic-group .am-navbar {
+  background-color: #F56C6C;
+}
+
+// 所有分组
+.dynamic-group {
+  .group-main {
+    padding-top: 15px;
+    padding-right: 15px;
+    overflow: hidden;
+
+    .group-item {
+      margin-left: 15px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+
+      .item-content {
+        padding: 10px;
+        background: #fff;
+      }
+
+      .group-title {
+        font-weight: bold;
+        font-size: 16px;
+        color: #303133;
+        padding-bottom: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .group-children {
+        font-size: 14px;
+        line-height: 22px;
+        color: #303133;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+// 动态分组列表
+.dynamic-group-list {
+  position: relative;
+
+  .group-main-header {
+    position: relative;
+    padding: 15px;
+
+    > div {
+      font-size: 14px;
+    }
+
+    .header-name {
+      color: #909399;
+    }
+
+    .header-label {
+      position: absolute;
+      top: 12.5px;
+      right: 15px;
+      color: #909399;
+
+      span {
+        position: relative;
+        top: -6.5px;
+        left: -2px;
+      }
+    }
+  }
+
+  .mobile-bottom {
+    padding-top: 35px;
+    padding-bottom: 5px;
+  
+    .bottom-describe {
+      color: #C0C4CC;
+      text-align: center;
+      font-size: 14px;
+    }
+  }
+  
+}
+
+// 编辑页面
+.dynamic-edit {
+  position: relative;
+
+  .edit-header {
+    position: relative;
+    background: #F56C6C;
+    height: 40px;
+
+    .tiltle-icon {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        height: 40px;
+        color: #fff;
+        padding: 0px 10px;
+        z-index: 2;
+        background: #F56C6C;
+        svg {
+          position: relative;
+          top: 8px;
+        }
+    }
+
+    .tiltle-input {
+      overflow: hidden;
+      width: 100%;
+      height: 40px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      line-height: 40px;
+      text-align: center;
+      background: #F56C6C;
+      color: #fff;
+    }
+  }
+
+  .ReactMarkdown {
+    padding: 15px;
+    ul,
+    ol,
+    li,
+    p {
+      font-size: 14px;
+      line-height: 22px;
+      color: #606266;
+    }
+    h1,h2,h3,h4,h5,h6 {
+      color: #303133;
+    }
+    h3,h4,h5,h6 {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: normal;
+    }
+    h2 {
+      font-size: 20px;
+      line-height: 28px;
+      font-weight: normal;
+    }
+    h1 {
+      font-size: 24px;
+      line-height: 32px;
+      font-weight: normal;
+    }
+    a {
+      color: #409EFF;
+      text-decoration: underline;
+    }
+    ul {
+      padding-left: 10px;
+      li {
+        list-style: square inside url('http://p6ygud9kn.bkt.clouddn.com/icon/label_fill.png')
+      }
+    }
+    ol {
+      padding-left: 10px;
+      li {
+        list-style: decimal inside;
+        li {
+          list-style: lower-roman inside;
+          li {
+            list-style: upper-roman inside;
+          }
+        }
+      }
+    }
+  }
+
+}

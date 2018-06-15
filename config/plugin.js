@@ -1,6 +1,11 @@
-exports.static = true;
-
-exports.reactssr = {
-  enable: true,
-  package: 'egg-view-react-ssr'
+module.exports = {
+    mysql: {
+        enable: true,
+        package: 'egg-mysql',
+    },
+    
+    cors: { // 跨域请求
+        enable: true,
+        package: 'egg-cors',
+    },
 };
