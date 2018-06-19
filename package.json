@@ -3,14 +3,17 @@
   "version": "4.0.0",
   "description": "基于 Egg + react + dva + antd-mobile 单页面服务端渲染同构工程骨架项目",
   "scripts": {
-    "start": "",
+    "start": "node shell/start",
 
     "serverDev": "egg-bin dev",
     "serverStart": "egg-scripts start --daemon --title=egg-server-rejiejayserverside",
     "serverStop": "egg-scripts stop --title=egg-server-rejiejayserverside",
 
     "clientStart": "set PORT=8888&&roadhog server",
-    "clientBuild": "roadhog build"
+    "clientBuild": "roadhog build",
+
+    "ct": "set PORT=8888&&roadhog server",
+    "st": "egg-bin dev"
   },
   "dependencies": {
     "shelljs": "^0.8.2",
