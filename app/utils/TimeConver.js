@@ -1,4 +1,4 @@
-const convertTime = {
+module.exports = {
   /**
    * Date 转换 xxxx-xx-xx 字符串
    * @param {Date} myDate 要转换的日期
@@ -82,5 +82,3 @@ const convertTime = {
     return `${yyyy}-${mmstring}-${ddstring} ${hhstring}:${Minstring}:${ssstring}`;
   }
 }
-
-module.exports = convertTime;

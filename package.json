@@ -1,47 +1,25 @@
 {
   "name": "myweb-webhook",
-  "version": "4.0.0",
-  "description": "基于 Egg + react + dva + antd-mobile 单页面服务端渲染同构工程骨架项目",
+  "version": "1.0.0",
+  "description": "webhook测试",
   "scripts": {
-    "start": "node shell/start",
-
-    "serverDev": "egg-bin dev",
-    "serverStart": "egg-scripts start --daemon --title=egg-server-rejiejayserverside",
-    "serverStop": "egg-scripts stop --title=egg-server-rejiejayserverside",
-
-    "clientStart": "set PORT=8888&&roadhog server",
-    "clientBuild": "roadhog build",
-
-    "ct": "set PORT=8888&&roadhog server",
-    "st": "egg-bin dev"
+    "dev": "egg-bin dev",
+    "start": "egg-scripts start --daemon",
+    "stop": "egg-scripts stop"
   },
   "dependencies": {
-    "shelljs": "^0.8.2",
-    "antd": "^3.2.1",
-    "antd-mobile": "^2.1.6",
-    "babel-plugin-import": "^1.6.5",
-    "dva": "^2.1.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-markdown": "^3.3.0",
-    "vconsole": "^3.1.0",
-    "egg": "^2.8.1",
-    "egg-cors": "^2.0.0",
-    "egg-mysql": "^3.0.0",
-    "lodash": "^4.17.10"
+    "github-webhook-handler": "^0.7.1",
+    "nodemailer": "^4.6.7",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "shelljs": "^0.8.2"
   },
   "devDependencies": {
-    "babel-plugin-dva-hmr": "^0.3.2",
-    "eslint": "^4.14.0",
-    "eslint-config-umi": "^0.1.1",
-    "eslint-plugin-flowtype": "^2.34.1",
-    "eslint-plugin-import": "^2.6.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.1.0",
-    "husky": "^0.12.0",
-    "redbox-react": "^1.4.3",
-    "roadhog": "^2.0.0",
-    "egg-bin": "^4.7.0"
+    "egg": "^2.8.1",
+    "egg-bin": "^4.7.0",
+    "egg-cors": "^2.0.0",
+    "egg-mysql": "^3.0.0",
+    "egg-scripts": "^2.6.0",
+    "lodash": "^4.17.10"
   },
   "license": "MIT"
 }

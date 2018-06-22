@@ -1,13 +1,12 @@
 module.exports = {
     cluster: {
         listen: {
-            hostname: '127.0.0.1',
-            port: 1938,
+            port: 2045,
         }
     },
 
     mysql: {
-        app: true,    // 是否加载到 app 上，默认开启
+        app: false,    // 是否加载到 app 上，默认开启
         agent: false, // 是否加载到 agent 上，默认关闭
         client: {     // 单数据库信息配置
             host: '127.0.0.1',     // host
@@ -18,7 +17,7 @@ module.exports = {
         },
     },
 
-    security: { // 跨域请求
-        domainWhiteList: [ 'http://localhost:8888' ],
-    }
+    // security: { // 跨域请求
+    //     domainWhiteList: [ 'http://localhost:8888' ],
+    // }
 };
