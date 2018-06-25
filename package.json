@@ -4,8 +4,8 @@
   "description": "webhook测试",
   "scripts": {
     "dev": "egg-bin dev",
-    "start": "egg-scripts start --daemon",
-    "stop": "egg-scripts stop"
+    "eggstart": "egg-scripts start --daemon --title=webhook",
+    "eggstop": "egg-scripts stop --title=webhook"
   },
   "dependencies": {
     "github-webhook-handler": "^0.7.1",

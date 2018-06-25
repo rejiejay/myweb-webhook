@@ -1,6 +1,6 @@
-var nodemailer = require('nodemailer')
-var smtpTransport = require('nodemailer-smtp-transport');
-var config = require('./../../config/config.default.js');
+let nodemailer = require('nodemailer')
+let smtpTransport = require('nodemailer-smtp-transport');
+let config = require('./../../config/config.default.js');
 
 smtpTransport = nodemailer.createTransport(smtpTransport({
     service: config.email.service,
@@ -11,25 +11,24 @@ smtpTransport = nodemailer.createTransport(smtpTransport({
 }));
 
 /**
+ * 发送邮件
  * @param {String} recipient 收件人
  * @param {String} subject 发送的主题
  * @param {String} html 发送的html内容
+ * @return {Promise} resolve(response) reject(error)
  */
-var sendMail = function (recipient, subject, html) {
-
+let Mailer = (recipient, subject, html) => new Promise((resolve, reject) => {
     smtpTransport.sendMail({
-
         from: config.email.user,
         to: recipient,
         subject: subject,
         html: html
-
-    }, function (error, response) {
+    }, (error, response) => {
         if (error) {
-            return console.error(error);
+            return reject(error);
         }
-        console.info('发送成功')
+        resolve(response);
     });
-}
+});
 
-module.exports = sendMail;
+module.exports = Mailer;
