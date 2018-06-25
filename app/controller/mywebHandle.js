@@ -3,7 +3,6 @@ const Controller = require('egg').Controller;
 const config = require('./../../config/config.default.js');
 
 const Mailer = require('./../utils/Mailer');
-const Consequencer = require('./../utils/Consequencer');
 
 var process = require('child_process');
 
@@ -19,8 +18,7 @@ class HomeController extends Controller {
 
             process.exec('node shell/clientHandle', (error, stdout, stderr) => {
                 if (error) {
-                    console.error(`exec error: ${error}`);
-                    return;
+                    return console.error(`exec error: ${error}`);
                 }
                 console.log(`stdout: ${stdout}`);
                 console.log(`stderr: ${stderr}`);
@@ -39,18 +37,17 @@ class HomeController extends Controller {
     async server() {
         let _this = this;
 
-        process.exec('node shell/serverHandle', (error, stdout, stderr) => {
-            if (error) {
-                console.error(`exec error: ${error}`);
-                return;
-            }
-            console.log(`stdout: ${stdout}`);
-            console.log(`stderr: ${stderr}`);
-        });
-
         if (this.validatingPayloads(this.ctx.request.body, this.ctx.request.header['x-hub-signature'])) { // 验证请求来自于github
             this.ctx.body = 'Validating success payloads from Github(myweb-server) and synchronizeing project now! Pay attention to your email.';
 
+            process.exec('node shell/serverHandle', (error, stdout, stderr) => {
+                if (error) {
+                    console.error(`exec error: ${error}`);
+                    return;
+                }
+                console.log(`stdout: ${stdout}`);
+                console.log(`stderr: ${stderr}`);
+            });
         } else { // 验证请求来自于github 失败, 并且以邮件通知
             await Mailer('454766952@qq.com', 'Github(myweb-server)项目验证请求失败', JSON.stringify(this.ctx.request.body))
             .then(
