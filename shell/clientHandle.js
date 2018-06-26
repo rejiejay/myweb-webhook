@@ -4,8 +4,12 @@ const Mailer = require('./../app/utils/Mailer');
 let clientHandleshelljs = () => new Promise((resolve, reject) => {
     shell.cd('/root/myweb-client');
     
-    if (shell.exec('git fetch https://github.com/rejiejay/myweb-client.git').code !== 0) {
+    if (shell.exec('git fetch origin master').code !== 0) {
         return reject('Error: Git fetch failed');
+    }
+    
+    if (shell.exec('git merge origin/master').code !== 0) {
+        return reject('Error: Git merge failed');
     }
     
     if (shell.mv('-n', 'assets', 'myweb-assets').code !== 0) {
