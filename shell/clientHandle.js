@@ -8,7 +8,7 @@ let clientHandleshelljs = () => new Promise((resolve, reject) => {
         return reject('Error: Git fetch failed');
     }
     
-    if (shell.mv('-n', 'public', 'myweb-assets').code !== 0) {
+    if (shell.mv('-n', 'assets', 'myweb-assets').code !== 0) {
         return reject('Error: modify myweb-client/public to myweb-assets failed');
     }
     
@@ -16,7 +16,7 @@ let clientHandleshelljs = () => new Promise((resolve, reject) => {
         return reject('Error: copy myweb-assets top myweb-assets failed');
     }
     
-    if (shell.mv('-n', 'myweb-assets', 'public').code !== 0) {
+    if (shell.mv('-n', 'myweb-assets', 'assets').code !== 0) {
         return reject('Error: modify myweb-client/public to myweb-assets failed');
     }
 
