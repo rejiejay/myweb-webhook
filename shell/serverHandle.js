@@ -2,15 +2,22 @@ const shell = require('shelljs');
 const Mailer = require('./../app/utils/Mailer');
 
 let serverHandleshell = () => new Promise((resolve, reject) => {
+    // 将项目克隆下来
+    if (shell.exec('git clone https://github.com/rejiejay/myweb-server.git').code !== 0) {
+        return reject('Error: Git clone failed');
+    }
+    
+    // 覆盖进去
+    if (shell.cp('-rf', '/root/myweb-webhook/myweb-server', '/root/').code !== 0) {
+        return reject('Error: copy myweb-server failed');
+    }
+
+    // 删除
+    if (shell.rm('-rf', '/root/myweb-webhook/myweb-server').code !== 0) {
+        return reject('Error: delete myweb-server failed');
+    }
+
     shell.cd('/root/myweb-server');
-    
-    if (shell.exec('git fetch origin master').code !== 0) {
-        return reject('Error: Git fetch failed');
-    }
-    
-    if (shell.exec('git merge origin/master').code !== 0) {
-        return reject('Error: Git merge failed');
-    }
     
     if (shell.exec('npm run eggstop').code !== 0) {
         return reject('Error: myweb-server stop failed');

@@ -2,26 +2,24 @@ const shell = require('shelljs');
 const Mailer = require('./../app/utils/Mailer');
 
 let clientHandleshelljs = () => new Promise((resolve, reject) => {
-    shell.cd('/root/myweb-client');
-    
-    if (shell.exec('git fetch origin master').code !== 0) {
-        return reject('Error: Git fetch failed');
+    // 将项目克隆下来
+    if (shell.exec('git clone https://github.com/rejiejay/myweb-client.git').code !== 0) {
+        return reject('Error: Git clone failed');
     }
     
-    if (shell.exec('git merge origin/master').code !== 0) {
-        return reject('Error: Git merge failed');
-    }
-    
-    if (shell.mv('-n', 'assets', 'myweb-assets').code !== 0) {
+    // 修改名字
+    if (shell.mv('-n', '/root/myweb-webhook/myweb-client/assets', '/root/myweb-webhook/myweb-client/myweb-assets').code !== 0) {
         return reject('Error: modify myweb-client/public to myweb-assets failed');
     }
     
-    if (shell.cp('-rf', 'myweb-assets', '/root/').code !== 0) {
-        return reject('Error: copy myweb-assets top myweb-assets failed');
+    // 覆盖进去
+    if (shell.cp('-rf', '/root/myweb-webhook/myweb-client/myweb-assets', '/root/').code !== 0) {
+        return reject('Error: copy myweb-assets to myweb-assets failed');
     }
-    
-    if (shell.mv('-n', 'myweb-assets', 'assets').code !== 0) {
-        return reject('Error: modify myweb-client/public to myweb-assets failed');
+
+    // 删除
+    if (shell.rm('-rf', '/root/myweb-webhook/myweb-client').code !== 0) {
+        return reject('Error: delete myweb-client failed');
     }
 
     return resolve(true);
